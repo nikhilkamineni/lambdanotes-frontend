@@ -28,13 +28,6 @@ const NoteDetailsStyled = styled.div`
     min-height: 50%;
   }
 
-  .Date {
-    margin: 10px 0;
-    font-size: 0.9rem;
-    display: flex;
-    justify-content: flex-end;
-  }
-
   a {
     padding-left: 10px;
     cursor: pointer;
@@ -111,16 +104,15 @@ class NoteDetails extends Component {
   state = {
     title: '',
     content: '',
-    _id: '',
-    createdOn: ''
+    _id: ''
   };
 
   componentDidMount() {
+    console.log(this.props.noteDetails);
     this.setState({
       title: this.props.noteDetails.title,
       content: this.props.noteDetails.content,
-      _id: this.props.noteDetails._id,
-      createdOn: this.props.noteDetails.createdOn
+      _id: this.props.noteDetails._id
     });
     window.scrollTo(0, 0);
   }
@@ -130,7 +122,6 @@ class NoteDetails extends Component {
   };
 
   render() {
-    let date = new Date(this.state.createdOn).toLocaleString();
     return (
       <NoteDetailsStyled className="NoteDetails">
         <header>
@@ -144,7 +135,6 @@ class NoteDetails extends Component {
           source={this.state.content}
           className="NoteDetails_Content"
         />
-        <div className="Date">{date}</div>
       </NoteDetailsStyled>
     );
   }

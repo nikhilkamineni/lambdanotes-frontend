@@ -56,7 +56,6 @@ class App extends Component {
   }
 
   loginUser = userInfo => {
-    console.log(`${userInfo.username} just logged in`);
     axios
       .post(`${SERVER_URL}/login`, userInfo)
       .then(res => {
@@ -64,6 +63,7 @@ class App extends Component {
       })
       .then(() => {
         this.setState({ authenticated: true, username: userInfo.username });
+        console.log(`${userInfo.username} just logged in`);
       })
       .then(() => {
         this.getNotes();
@@ -282,6 +282,7 @@ class App extends Component {
               />
             )}
         </div>
+
         {this.state.authenticated &&
           this.state.deletingNote && (
             <DeleteModal

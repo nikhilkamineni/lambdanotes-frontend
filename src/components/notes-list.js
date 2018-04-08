@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Note from './note';
 
+// STYLES
 const NoteListStyled = styled.div`
   width: 100%;
   height: 100%;
@@ -48,8 +49,9 @@ const NoteListStyled = styled.div`
       }
     }
   }
-`;
+`; // STYLES END HERE
 
+// COMPONENT STARTS HERE
 class NotesList extends Component {
   state = {
     notesFiltered: []
@@ -107,6 +109,6 @@ class NotesList extends Component {
       </NoteListStyled>
     );
   }
-}
+} // COMPONENT ENDS HERE
 
 export default NotesList;
